@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Randolf Joan Rodriguez Santos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 280px 1fr;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: linear-gradient(180deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 30px 20px;
+        }
+
+        .photo-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #4a90a4;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            border: 4px solid rgba(255,255,255,0.3);
+        }
+
+        .sidebar h2 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 25px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            color: #90cdf4;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+
+        .contact-item .icon {
+            width: 30px;
+            height: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .sidebar p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #e2e8f0;
+        }
+
+        .skill-item {
+            margin: 8px 0;
+            font-size: 12px;
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 3px;
+            margin-top: 4px;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: #90cdf4;
+            border-radius: 3px;
+        }
+
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            font-size: 13px;
+        }
+
+        /* Main Content */
+        .main {
+            padding: 30px;
+        }
+
+        .header {
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            color: #1a365d;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 16px;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #1a365d;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #2c5282;
+            font-weight: 700;
+        }
+
+        .experience-item {
+            margin-bottom: 18px;
+            padding-left: 15px;
+            border-left: 3px solid #e2e8f0;
+        }
+
+        .experience-item:hover {
+            border-left-color: #2c5282;
+        }
+
+        .job-title {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 14px;
+        }
+
+        .company {
+            color: #4a5568;
+            font-size: 13px;
+            margin: 2px 0;
+        }
+
+        .date {
+            color: #718096;
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        .job-description {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #4a5568;
+        }
+
+        .job-description li {
+            margin: 4px 0;
+            margin-left: 15px;
+        }
+
+        /* Certifications Grid */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .cert-item {
+            background: #f7fafc;
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            border-left: 3px solid #2c5282;
+        }
+
+        .cert-item.google {
+            border-left-color: #4285f4;
+            background: #e8f0fe;
+        }
+
+        .cert-item.cisco {
+            border-left-color: #049fd9;
+            background: #e6f7ff;
+        }
+
+        .cert-name {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .cert-issuer {
+            color: #718096;
+            font-size: 10px;
+        }
+
+        /* Skills Tags */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #edf2f7;
+            color: #2d3748;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .skill-tag.highlight {
+            background: #2c5282;
+            color: white;
+        }
+
+        /* Education */
+        .edu-item {
+            margin-bottom: 12px;
+        }
+
+        .edu-title {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 13px;
+        }
+
+        .edu-school {
+            color: #4a5568;
+            font-size: 12px;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="photo-container">RR</div>
+
+            <h2>Contacto</h2>
+            <div class="contact-item">
+                <span class="icon">@</span>
+                <span>Randolfjoan@gmail.com</span>
+            </div>
+            <div class="contact-item">
+                <span class="icon">W</span>
+                <span>829-637-7306</span>
+            </div>
+            <div class="contact-item">
+                <span class="icon">in</span>
+                <span>linkedin.com/in/randolf-joan</span>
+            </div>
+
+            <h2>Perfil</h2>
+            <p>Profesional de IT con +4 años de experiencia en soporte técnico, administración de servidores y ciberseguridad. Certificado por Google y Cisco en redes y seguridad informática. Experto en diagnóstico y resolución de problemas de hardware/software.</p>
+
+            <h2>Idiomas</h2>
+            <div class="language-item">
+                <span>Español</span>
+                <span>Nativo</span>
+            </div>
+            <div class="language-item">
+                <span>Inglés</span>
+                <span>Básico</span>
+            </div>
+
+            <h2>Sistemas</h2>
+            <div class="skill-item">
+                Windows Server
+                <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+            </div>
+            <div class="skill-item">
+                Linux (Ubuntu/Fedora)
+                <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+            </div>
+            <div class="skill-item">
+                Azure / GCP
+                <div class="skill-bar"><div class="skill-fill" style="width: 75%"></div></div>
+            </div>
+            <div class="skill-item">
+                Redes / TCP-IP
+                <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
+            </div>
+            <div class="skill-item">
+                Ciberseguridad
+                <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main">
+            <div class="header">
+                <h1>RANDOLF JOAN RODRIGUEZ SANTOS</h1>
+                <div class="subtitle">Técnico en Soporte IT | Administrador de Sistemas | Ciberseguridad</div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Experiencia Laboral</h2>
+
+                <div class="experience-item">
+                    <div class="job-title">Técnico en IT y Reparación de Computadoras</div>
+                    <div class="company">Independiente / ZonaPC Plus</div>
+                    <div class="date">Enero 2020 - Presente (5 años)</div>
+                    <ul class="job-description">
+                        <li>Reparación y mantenimiento de PCs y laptops</li>
+                        <li>Diagnóstico de problemas de hardware y software</li>
+                        <li>Construcción de equipos de alto rendimiento</li>
+                        <li>Asesoría técnica a clientes empresariales</li>
+                        <li>Soporte remoto y presencial</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Administrador de Tecnología</div>
+                    <div class="company">Mantisa SRL</div>
+                    <div class="date">Mayo 2022 - Mayo 2023 (1 año)</div>
+                    <ul class="job-description">
+                        <li>Gestión de infraestructura tecnológica empresarial</li>
+                        <li>Implementación y mantenimiento de sistemas</li>
+                        <li>Soporte técnico a usuarios nivel 1 y 2</li>
+                        <li>Resolución de incidentes y problemas</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Gestor de Páginas Web y Redes Sociales</div>
+                    <div class="company">Independiente</div>
+                    <div class="date">Mayo 2022 - Mayo 2023 (1 año)</div>
+                    <ul class="job-description">
+                        <li>Gestión y actualización de contenido web</li>
+                        <li>Análisis de métricas y reportes de rendimiento</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Certificaciones</h2>
+                <div class="cert-grid">
+                    <div class="cert-item google">
+                        <div class="cert-name">Google Cybersecurity Professional</div>
+                        <div class="cert-issuer">Coursera - Abril 2025 (8 cursos)</div>
+                    </div>
+                    <div class="cert-item cisco">
+                        <div class="cert-name">Network Technician Career Path</div>
+                        <div class="cert-issuer">Cisco - Agosto 2024</div>
+                    </div>
+                    <div class="cert-item cisco">
+                        <div class="cert-name">Introduction to Cybersecurity</div>
+                        <div class="cert-issuer">Cisco - Agosto 2024</div>
+                    </div>
+                    <div class="cert-item cisco">
+                        <div class="cert-name">Network Support and Security</div>
+                        <div class="cert-issuer">Cisco - Agosto 2024</div>
+                    </div>
+                    <div class="cert-item cisco">
+                        <div class="cert-name">Network Addressing & Troubleshooting</div>
+                        <div class="cert-issuer">Cisco - Agosto 2024</div>
+                    </div>
+                    <div class="cert-item cisco">
+                        <div class="cert-name">Python Essentials 1</div>
+                        <div class="cert-issuer">Cisco - Agosto 2024</div>
+                    </div>
+                    <div class="cert-item cisco">
+                        <div class="cert-name">Networking Basics</div>
+                        <div class="cert-issuer">Cisco - Julio 2024</div>
+                    </div>
+                    <div class="cert-item cisco">
+                        <div class="cert-name">Computer Hardware Basics</div>
+                        <div class="cert-issuer">Cisco - Enero 2024</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Educación</h2>
+                <div class="edu-item">
+                    <div class="edu-title">Tecnólogo en Desarrollo de Software</div>
+                    <div class="edu-school">Instituto Tecnológico de las Américas (ITLA)</div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-title">Bachillerato Técnico en Informática</div>
+                    <div class="edu-school">Politécnico José Delio Guzmán</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Habilidades Técnicas</h2>
+                <div class="skills-grid">
+                    <span class="skill-tag highlight">Soporte Técnico N1/N2</span>
+                    <span class="skill-tag highlight">Windows Server</span>
+                    <span class="skill-tag highlight">Redes TCP/IP</span>
+                    <span class="skill-tag highlight">Ciberseguridad</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">Azure</span>
+                    <span class="skill-tag">Google Cloud</span>
+                    <span class="skill-tag">Active Directory</span>
+                    <span class="skill-tag">SIEM</span>
+                    <span class="skill-tag">IDS</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Hardware</span>
+                    <span class="skill-tag">Microsoft Office</span>
+                    <span class="skill-tag">Virtualización</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
